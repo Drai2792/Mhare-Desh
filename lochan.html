@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Video Playlist Gallery</title>
+	<link rel="stylesheet" href="D:\Desktop\lochan.css">
+</head>
+<body>
+    <h3 class="heading">Know Rajhasthan</h3> 
+  <div class="container">
+    <div class="main-video">
+      <div class="video">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/3e1MqHXWDlA" title="Mewar Fort" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <h3 class="title">01.video title goes here</h3>
+      </div>
+    </div>
+    <div class="video-list">
+      <div class="vid active">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/fdHTklh-eLo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+        <h3 class="title">02.video title goes here</h3>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let listVideo=document.querySelector('.video-list .vid');
+    let mainVideo=document.querySelector('. main-video video');
+    let title=document.querySelector('.mai-video .title');
+    listVideo.forEach(video=>{
+      video.onclick= () =>{
+        listVideo.forEach(vid => vid.classList.remove('active'));
+        video.classList.add('active');
+        if(video.classList.contains('active')){
+          let src= video.children[0].getAttribute('src');
+          mainVideo.src = src;
+          let text = video.children[1].innerHTML;
+          title.innerHTML = text;
+        };
+      };
+    });
+    </script>
+    </body>
+</html>
